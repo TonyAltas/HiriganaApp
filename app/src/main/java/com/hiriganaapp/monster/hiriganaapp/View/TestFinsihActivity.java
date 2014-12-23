@@ -4,15 +4,36 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.hiriganaapp.monster.hiriganaapp.R;
 
+import java.util.concurrent.TimeUnit;
+
 public class TestFinsihActivity extends ActionBarActivity {
+    private final String TOTAL_FLASH_CARDS = "total_flash_cards";
+    private final String TIME_ELAPSED = "time_elapsed";
+    private int totalCards;
+    private long timeElapsed= 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_finsih);
+
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            totalCards = (int) extras.getInt(TOTAL_FLASH_CARDS);
+            timeElapsed = (long) extras.getLong(TIME_ELAPSED);
+        }
+
+        TextView totalFlashCard = (TextView) findViewById(R.id.totalCardNumbersTestFiinish_TextView);
+        totalFlashCard.setText("total Cards : " + totalCards);
+
+        TextView timeElapsedTextView = (TextView) findViewById(R.id.timeElapsedTestFinish_TextView);
+        timeElapsedTextView.setText(Long.toString(TimeUnit.NANOSECONDS.toSeconds(timeElapsed)));
+
     }
 
 

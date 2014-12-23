@@ -22,11 +22,12 @@
         </activity>
         <activity
             android:name=".View.TestActivity"
-            android:label="@string/title_activity_test" >
+            android:label="@string/title_activity_test"
+            android:noHistory="true">
         </activity>
         <activity
             android:name=".View.TestFinsihActivity"
-            android:label="@string/title_activity_test_finsih" >
+            android:label="@string/title_activity_test_finsih">
         </activity>
     </application>
 

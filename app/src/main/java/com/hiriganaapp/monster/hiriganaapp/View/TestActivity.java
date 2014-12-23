@@ -21,14 +21,20 @@ import java.util.StringTokenizer;
 public class TestActivity extends Activity {
     private final String SELECTED_HIRAGANA_PREFFERENCE = "selected_hiragana";
     private final String HIRAGANA_PREFERENCE_FILE = "hiragana_preferences _file";
+    private final String TOTAL_FLASH_CARDS = "total_flash_cards";
+    private final String TIME_ELAPSED = "time_elapsed";
     private String selectedHiraganaString;
     private String[] selectedHiraganaArray = new String[75];
     private  String hiraganaArray[];
 
+
     // Counter for the current card being displayed
     private int flashCardCounter = 0;
     // Total number of cards
-    private int flashCardMax;
+    private int flashCardMax = 0;
+    private int initialFlashCardMax = 0;
+    private long startTestTime =0;
+    private long endTestTime = 0;
 
     private TextView display;
     private Button yesButton;
@@ -42,6 +48,8 @@ public class TestActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
+        //Start timing how long test takes.
+        startTestTime = System.nanoTime();
         //Retrieve list of selected hiraganaArray to display
         SharedPreferences settings = getSharedPreferences
                 (HIRAGANA_PREFERENCE_FILE, Context.MODE_PRIVATE);
@@ -67,7 +75,8 @@ public class TestActivity extends Activity {
         }
 
         //Set Max Number Of FlashCards
-        flashCardMax = numSelectedHiragana-1;
+        initialFlashCardMax = numSelectedHiragana;
+        flashCardMax = initialFlashCardMax-1;
         //Display hirigana for flashcard
         display.setText(hiraganaArray[Integer.parseInt(selectedHiraganaArray[flashCardCounter])]);
 
@@ -111,7 +120,14 @@ public class TestActivity extends Activity {
                     display.setText("No More Cards!");
                     totalCardNumber.setText("0");
                     currentCardNumber.setText("0");
+
+                    //End test Time
+                    endTestTime = System.nanoTime();
+
+                    //Send total Number of cards and time elapsed to Finish Activity.
                     Intent intent = new Intent(context, TestFinsihActivity.class);
+                    intent.putExtra(TOTAL_FLASH_CARDS, initialFlashCardMax);
+                    intent.putExtra(TIME_ELAPSED, endTestTime-startTestTime);
                     startActivity(intent);
 
                     return;
