@@ -8,6 +8,7 @@
     <string name="Library">Library</string>
     <string name="testYes">Yes</string>
     <string name="testNo">No</string>
+    <string name="title_activity_test">TestActivity</string>
 
     <string-array name="hiragana">
         <item>あ</item>
@@ -71,9 +72,9 @@
         <item>め</item>
         <item>も</item>
         <item>や</item>
-        <item></item>
+        <item/>
         <item>ゆ</item>
-        <item></item>
+        <item/>
         <item>よ</item>
         <item>ら</item>
         <item>り</item>
@@ -81,13 +82,13 @@
         <item>れ</item>
         <item>ろ</item>
         <item>わ</item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item/>
+        <item/>
+        <item/>
         <item>を</item>
         <item>ん</item>
     </string-array>
 
-    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_test_finsih">TestFinsihActivity</string>
 
 </resources>

@@ -24,6 +24,10 @@
             android:name=".View.TestActivity"
             android:label="@string/title_activity_test" >
         </activity>
+        <activity
+            android:name=".View.TestFinsihActivity"
+            android:label="@string/title_activity_test_finsih" >
+        </activity>
     </application>
 
 </manifest>

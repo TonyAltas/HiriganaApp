@@ -2,6 +2,7 @@ package com.hiriganaapp.monster.hiriganaapp.View;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.support.v7.app.ActionBarActivity;
@@ -102,10 +103,6 @@ public class TestActivity extends Activity {
         yesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-                //test Git
-                //Test again
                 // All flashcards have been checked as correct, finish test.
                 if (flashCardMax >= 0) {
                     flashCardMax--;
@@ -114,6 +111,9 @@ public class TestActivity extends Activity {
                     display.setText("No More Cards!");
                     totalCardNumber.setText("0");
                     currentCardNumber.setText("0");
+                    Intent intent = new Intent(context, TestFinsihActivity.class);
+                    startActivity(intent);
+
                     return;
                 }
 
