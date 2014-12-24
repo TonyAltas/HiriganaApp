@@ -13,8 +13,12 @@ import java.util.concurrent.TimeUnit;
 public class TestFinsihActivity extends ActionBarActivity {
     private final String TOTAL_FLASH_CARDS = "total_flash_cards";
     private final String TIME_ELAPSED = "time_elapsed";
+    private final String MINUTES_ELAPSED = "minutes_elapsed";
+    private final String SECONDS_ELAPSED = "seconds_elapsed";
     private int totalCards;
     private long timeElapsed= 0;
+    private int seconds=0;
+    private int minutes=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +30,15 @@ public class TestFinsihActivity extends ActionBarActivity {
         if (extras != null) {
             totalCards = (int) extras.getInt(TOTAL_FLASH_CARDS);
             timeElapsed = (long) extras.getLong(TIME_ELAPSED);
+            seconds = extras.getInt(SECONDS_ELAPSED);
+            minutes = extras.getInt(MINUTES_ELAPSED);
         }
 
         TextView totalFlashCard = (TextView) findViewById(R.id.totalCardNumbersTestFiinish_TextView);
         totalFlashCard.setText("total Cards : " + totalCards);
 
         TextView timeElapsedTextView = (TextView) findViewById(R.id.timeElapsedTestFinish_TextView);
-        timeElapsedTextView.setText(Long.toString(TimeUnit.NANOSECONDS.toSeconds(timeElapsed)));
+        timeElapsedTextView.setText(String.format("%d:%02d",minutes,seconds));
 
     }
 

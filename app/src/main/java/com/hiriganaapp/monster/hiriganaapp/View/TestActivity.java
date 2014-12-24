@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,12 +18,15 @@ import android.widget.TextView;
 import com.hiriganaapp.monster.hiriganaapp.R;
 
 import java.util.StringTokenizer;
+import java.util.concurrent.TimeUnit;
 
 public class TestActivity extends Activity {
     private final String SELECTED_HIRAGANA_PREFFERENCE = "selected_hiragana";
     private final String HIRAGANA_PREFERENCE_FILE = "hiragana_preferences _file";
     private final String TOTAL_FLASH_CARDS = "total_flash_cards";
     private final String TIME_ELAPSED = "time_elapsed";
+    private final String MINUTES_ELAPSED = "minutes_elapsed";
+    private final String SECONDS_ELAPSED = "seconds_elapsed";
     private String selectedHiraganaString;
     private String[] selectedHiraganaArray = new String[75];
     private  String hiraganaArray[];
@@ -35,13 +39,29 @@ public class TestActivity extends Activity {
     private int initialFlashCardMax = 0;
     private long startTestTime =0;
     private long endTestTime = 0;
+    private int seconds =0;
+    private int minutes =0;
 
     private TextView display;
     private Button yesButton;
     private Button noButton;
     private TextView currentCardNumber;
     private TextView totalCardNumber;
+    private TextView timerTextView;
     private Context context = this;
+
+    Handler timeHandler = new Handler();
+    Runnable timeRunnable  = new Runnable() {
+        @Override
+        public void run() {
+            long timeCounter = System.nanoTime() - startTestTime;
+            seconds = (int) TimeUnit.NANOSECONDS.toSeconds(timeCounter);
+            minutes = (int) TimeUnit.NANOSECONDS.toMinutes(timeCounter);
+            timerTextView.setText(String.format("%d:%02d", minutes,seconds));
+
+            timeHandler.postDelayed(this,500);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +82,9 @@ public class TestActivity extends Activity {
 
         currentCardNumber = (TextView) findViewById(R.id.currentCardNumber_textView);
         totalCardNumber = (TextView) findViewById(R.id.totalCardNumber_textView);
+        timerTextView = (TextView) findViewById(R.id.timer_TextView);
+
+        timeHandler.postDelayed(timeRunnable,0);
 
         //Retrieve hiraganaArray array
         Resources res = getResources();
@@ -128,6 +151,8 @@ public class TestActivity extends Activity {
                     Intent intent = new Intent(context, TestFinsihActivity.class);
                     intent.putExtra(TOTAL_FLASH_CARDS, initialFlashCardMax);
                     intent.putExtra(TIME_ELAPSED, endTestTime-startTestTime);
+                    intent.putExtra(MINUTES_ELAPSED, minutes);
+                    intent.putExtra(SECONDS_ELAPSED, seconds);
                     startActivity(intent);
 
                     return;

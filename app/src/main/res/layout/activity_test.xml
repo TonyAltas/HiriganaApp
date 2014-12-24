@@ -54,4 +54,23 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/no_Button"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/timer_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp" />
+    <TextView
+        android:text="Time: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/yes_Button"
+        android:layout_toRightOf="@+id/totalCardNumber_textView"
+        android:layout_toEndOf="@+id/totalCardNumber_textView"
+        android:layout_marginTop="42dp"
+        android:id="@+id/textView2" />
 </RelativeLayout>
