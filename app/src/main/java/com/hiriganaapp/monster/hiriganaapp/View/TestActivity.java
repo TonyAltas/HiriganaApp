@@ -31,6 +31,9 @@ public class TestActivity extends Activity {
     private String[] selectedHiraganaArray = new String[75];
     private  String hiraganaArray[];
 
+    private final String SETTINGS_PREFERENCCE_FILE = "settings_file";
+    private final String INFINITE_LOOP_SETTINGS = "infinite_loop";
+
 
     // Counter for the current card being displayed
     private int flashCardCounter = 0;
@@ -41,6 +44,8 @@ public class TestActivity extends Activity {
     private long endTestTime = 0;
     private int seconds =0;
     private int minutes =0;
+
+    private boolean infinityLoop = false;
 
     private TextView display;
     private Button yesButton;
@@ -112,6 +117,13 @@ public class TestActivity extends Activity {
 //        yesButton.setOnClickListener(new yesButtonOnClickListener(flashCardCounter,flashCardMax,
 //                display,selectedHiraganaArray,context));
 
+
+        //Read in the Settigns from the Settings preference file.
+        settings = getSharedPreferences(SETTINGS_PREFERENCCE_FILE, Context.MODE_PRIVATE);
+        infinityLoop = settings.getBoolean(INFINITE_LOOP_SETTINGS, false);
+        Log.v("Infinite Settings", String.valueOf(infinityLoop));
+
+
         noButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -135,11 +147,23 @@ public class TestActivity extends Activity {
         yesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (infinityLoop == true) {
+                    if (flashCardCounter < flashCardMax) {
+                        flashCardCounter++;
+                    } else {
+                        flashCardCounter = 0;
+                    }
+                    display.setText(hiraganaArray[Integer.parseInt(selectedHiraganaArray[flashCardCounter])]);
+                    currentCardNumber.setText(Integer.toString(flashCardCounter + 1));
+                    return;
+                }
+
                 // All flashcards have been checked as correct, finish test.
                 if (flashCardMax >= 0) {
                     flashCardMax--;
                 }
-                if(flashCardMax < 0 ){
+                if (flashCardMax < 0) {
                     display.setText("No More Cards!");
                     totalCardNumber.setText("0");
                     currentCardNumber.setText("0");
@@ -150,7 +174,7 @@ public class TestActivity extends Activity {
                     //Send total Number of cards and time elapsed to Finish Activity.
                     Intent intent = new Intent(context, TestFinsihActivity.class);
                     intent.putExtra(TOTAL_FLASH_CARDS, initialFlashCardMax);
-                    intent.putExtra(TIME_ELAPSED, endTestTime-startTestTime);
+                    intent.putExtra(TIME_ELAPSED, endTestTime - startTestTime);
                     intent.putExtra(MINUTES_ELAPSED, minutes);
                     intent.putExtra(SECONDS_ELAPSED, seconds);
                     startActivity(intent);
@@ -174,7 +198,7 @@ public class TestActivity extends Activity {
                     flashCardCounter = 0;
                 }
                 display.setText(hiraganaArray[Integer.parseInt(selectedHiraganaArray[flashCardCounter])]);
-                totalCardNumber.setText(Integer.toString(flashCardMax+1));
+                totalCardNumber.setText(Integer.toString(flashCardMax + 1));
                 currentCardNumber.setText(Integer.toString(flashCardCounter + 1));
                 Log.v("YesClick", Integer.toString(flashCardCounter));
                 Log.v("YesClick___MaxCounter IS: ", Integer.toString(flashCardMax));

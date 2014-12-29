@@ -46,6 +46,10 @@ public class MainActivity extends ActionBarActivity {
                     Intent intent = new Intent(context, LibraryActivity.class);
                     startActivity(intent);
                 }
+                else if (item.equals("Settings")) {
+                    Intent intent = new Intent((context), SettingsActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }

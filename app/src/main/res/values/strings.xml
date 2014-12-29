@@ -8,6 +8,7 @@
     <string name="Library">Library</string>
     <string name="testYes">Yes</string>
     <string name="testNo">No</string>
+    <string name="infinityLoop">Infinity Loop</string>
     <string name="title_activity_test">TestActivity</string>
 
     <string-array name="hiragana">
@@ -90,5 +91,6 @@
     </string-array>
 
     <string name="title_activity_test_finsih">TestFinsihActivity</string>
+    <string name="title_activity_settings">Settings</string>
 
 </resources>

@@ -23,11 +23,15 @@
         <activity
             android:name=".View.TestActivity"
             android:label="@string/title_activity_test"
-            android:noHistory="true">
+            android:noHistory="true" >
         </activity>
         <activity
             android:name=".View.TestFinsihActivity"
-            android:label="@string/title_activity_test_finsih">
+            android:label="@string/title_activity_test_finsih" >
+        </activity>
+        <activity
+            android:name=".View.SettingsActivity"
+            android:label="@string/title_activity_settings" >
         </activity>
     </application>
 
