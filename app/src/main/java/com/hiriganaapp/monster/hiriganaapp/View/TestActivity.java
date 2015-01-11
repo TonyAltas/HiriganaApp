@@ -102,6 +102,8 @@ public class TestActivity extends Activity {
             numSelectedHiragana++;
         }
 
+
+
         //Set Max Number Of FlashCards
         initialFlashCardMax = numSelectedHiragana;
         flashCardMax = initialFlashCardMax-1;

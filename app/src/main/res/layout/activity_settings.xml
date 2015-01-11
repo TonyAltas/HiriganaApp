@@ -18,4 +18,16 @@
         android:layout_marginStart="28dp"
         android:checked="false" />
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Randomize Test"
+        android:id="@+id/randomizeTestSettings_CheckBox"
+        android:checked="false"
+        android:layout_below="@+id/infiniteLoopSetting_CheckBox"
+        android:layout_alignLeft="@+id/infiniteLoopSetting_CheckBox"
+        android:layout_alignStart="@+id/infiniteLoopSetting_CheckBox" />
+
+
+
 </RelativeLayout>
