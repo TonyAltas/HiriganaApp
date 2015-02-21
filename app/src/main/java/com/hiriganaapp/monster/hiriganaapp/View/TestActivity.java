@@ -5,9 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +16,7 @@ import android.widget.TextView;
 
 import com.hiriganaapp.monster.hiriganaapp.R;
 
+import java.util.Random;
 import java.util.StringTokenizer;
 import java.util.concurrent.TimeUnit;
 
@@ -33,7 +33,7 @@ public class TestActivity extends Activity {
 
     private final String SETTINGS_PREFERENCCE_FILE = "settings_file";
     private final String INFINITE_LOOP_SETTINGS = "infinite_loop";
-
+    private final String RANDOMIZE_TEST_SETTINGS = "randomize_test";
 
     // Counter for the current card being displayed
     private int flashCardCounter = 0;
@@ -46,6 +46,7 @@ public class TestActivity extends Activity {
     private int minutes =0;
 
     private boolean infinityLoop = false;
+    private boolean randomizeTest = false;
 
     private TextView display;
     private Button yesButton;
@@ -54,6 +55,10 @@ public class TestActivity extends Activity {
     private TextView totalCardNumber;
     private TextView timerTextView;
     private Context context = this;
+    private Random rand = new Random();
+    private int randomNumber = 0;
+    private String temp;
+
 
     Handler timeHandler = new Handler();
     Runnable timeRunnable  = new Runnable() {
@@ -72,6 +77,7 @@ public class TestActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+
 
         //Start timing how long test takes.
         startTestTime = System.nanoTime();
@@ -96,22 +102,42 @@ public class TestActivity extends Activity {
         hiraganaArray = res.getStringArray(R.array.hiragana);
         //Tokenize selected items array
         StringTokenizer stringTokenizer = new StringTokenizer(selectedHiraganaString, ",");
-        int numSelectedHiragana = 0;
+        int numOfSelectedHiragana = 0;
         while (stringTokenizer.hasMoreElements()) {
-            selectedHiraganaArray[numSelectedHiragana] = stringTokenizer.nextElement().toString();
-            numSelectedHiragana++;
+            selectedHiraganaArray[numOfSelectedHiragana] = stringTokenizer.nextElement().toString();
+            numOfSelectedHiragana++;
         }
 
-
-
         //Set Max Number Of FlashCards
-        initialFlashCardMax = numSelectedHiragana;
+        initialFlashCardMax = numOfSelectedHiragana;
         flashCardMax = initialFlashCardMax-1;
-        //Display hirigana for flashcard
-        display.setText(hiraganaArray[Integer.parseInt(selectedHiraganaArray[flashCardCounter])]);
+
 
         totalCardNumber.setText(Integer.toString(flashCardMax+1));
         currentCardNumber.setText("1");
+
+        //Read in the Settigns from the Settings preference file.
+        settings = getSharedPreferences(SETTINGS_PREFERENCCE_FILE, Context.MODE_PRIVATE);
+        infinityLoop = settings.getBoolean(INFINITE_LOOP_SETTINGS, false);
+        Log.v("Infinite Settings", String.valueOf(infinityLoop));
+
+        // Randomize the array
+        randomizeTest = settings.getBoolean(RANDOMIZE_TEST_SETTINGS, false);
+        if (randomizeTest == true) {
+
+            for (int i = 0; i < initialFlashCardMax; i++) {
+                randomNumber = rand.nextInt(initialFlashCardMax);
+                Log.v("Flash Cards Length : ", Integer.toString(initialFlashCardMax));
+                temp = selectedHiraganaArray[i];
+                selectedHiraganaArray[i] = selectedHiraganaArray[randomNumber];
+                Log.d("Random Number: ", Integer.toString(randomNumber));
+                selectedHiraganaArray[randomNumber] = temp;
+            }
+        }
+
+        //Display hirigana for flashcard
+        display.setText(hiraganaArray[Integer.parseInt(selectedHiraganaArray[flashCardCounter])]);
+
 
 //        noButton.setOnClickListener(new noButtonOnClickListener(flashCardCounter,flashCardMax,
 //                display,selectedHiraganaArray,context));
@@ -120,10 +146,7 @@ public class TestActivity extends Activity {
 //                display,selectedHiraganaArray,context));
 
 
-        //Read in the Settigns from the Settings preference file.
-        settings = getSharedPreferences(SETTINGS_PREFERENCCE_FILE, Context.MODE_PRIVATE);
-        infinityLoop = settings.getBoolean(INFINITE_LOOP_SETTINGS, false);
-        Log.v("Infinite Settings", String.valueOf(infinityLoop));
+
 
 
         noButton.setOnClickListener(new View.OnClickListener() {
@@ -141,8 +164,8 @@ public class TestActivity extends Activity {
                 }
                 display.setText(hiraganaArray[Integer.parseInt(selectedHiraganaArray[flashCardCounter])]);
                 currentCardNumber.setText(Integer.toString(flashCardCounter + 1));
-                Log.v("NoClick", Integer.toString(flashCardCounter));
-                Log.v("NoClick___MaxCounter IS: ", Integer.toString(flashCardMax));
+//                Log.v("NoClick", Integer.toString(flashCardCounter));
+//                Log.v("NoClick___MaxCounter IS: ", Integer.toString(flashCardMax));
             }
         });
 
@@ -202,8 +225,8 @@ public class TestActivity extends Activity {
                 display.setText(hiraganaArray[Integer.parseInt(selectedHiraganaArray[flashCardCounter])]);
                 totalCardNumber.setText(Integer.toString(flashCardMax + 1));
                 currentCardNumber.setText(Integer.toString(flashCardCounter + 1));
-                Log.v("YesClick", Integer.toString(flashCardCounter));
-                Log.v("YesClick___MaxCounter IS: ", Integer.toString(flashCardMax));
+//                Log.v("YesClick", Integer.toString(flashCardCounter));
+//                Log.v("YesClick___MaxCounter IS: ", Integer.toString(flashCardMax));
             }
         });
     }
