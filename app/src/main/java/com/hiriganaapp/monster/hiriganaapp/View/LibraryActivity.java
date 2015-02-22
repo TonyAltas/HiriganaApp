@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.graphics.Color;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -49,11 +47,11 @@ public class LibraryActivity extends Activity {
 
 
                 if (hiraganaItems[i] == NOT_SELECTED) {
-                    view.setBackgroundColor(Color.GRAY);
+                    view.setBackgroundColor(getResources().getColor(R.color.library_selected));
                     hiraganaItems[i] = SELECTED;
                 } else {
                     hiraganaItems[i] = NOT_SELECTED;
-                    view.setBackgroundColor(Color.parseColor("#18A608"));
+                    view.setBackgroundColor(getResources().getColor(R.color.library_bg));
                 }
             }
         });

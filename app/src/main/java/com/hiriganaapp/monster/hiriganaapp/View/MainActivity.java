@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.hiriganaapp.monster.hiriganaapp.R;
+import com.hiriganaapp.monster.hiriganaapp.Utils.Utils;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -29,6 +30,7 @@ public class MainActivity extends ActionBarActivity {
         menulistView = (ListView) findViewById(R.id.main_list);
         arrayAdapter = new ArrayAdapter<String>(context,
                 android.R.layout.simple_list_item_1, mainListArray);
+        menulistView.getLayoutParams().width = Utils.getWidestView(context, arrayAdapter);
         menulistView.setAdapter(arrayAdapter);
 //
         menulistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

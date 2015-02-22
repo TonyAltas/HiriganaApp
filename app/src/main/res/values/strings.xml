@@ -9,7 +9,9 @@
     <string name="testYes">Yes</string>
     <string name="testNo">No</string>
     <string name="infinityLoop">Infinity Loop</string>
+    <string name="randomizeTest">RandomizeTest</string>
     <string name="title_activity_test">TestActivity</string>
+    <string name="timeLabelTextView">Time: </string>
 
     <string-array name="hiragana">
         <item>あ</item>

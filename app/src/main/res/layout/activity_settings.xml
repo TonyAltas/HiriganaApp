@@ -1,33 +1,39 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.hiriganaapp.monster.hiriganaapp.View.SettingsActivity">
+    tools:context="com.hiriganaapp.monster.hiriganaapp.View.SettingsActivity"
+    android:background="@drawable/main_bg">
 
 
-
-    <CheckBox
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/infinityLoop"
-        android:id="@+id/infiniteLoopSetting_CheckBox"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp"
-        android:checked="false" />
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="#cdcdcd">
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Randomize Test"
-        android:id="@+id/randomizeTestSettings_CheckBox"
-        android:checked="false"
-        android:layout_below="@+id/infiniteLoopSetting_CheckBox"
-        android:layout_alignLeft="@+id/infiniteLoopSetting_CheckBox"
-        android:layout_alignStart="@+id/infiniteLoopSetting_CheckBox" />
+        <CheckBox
+            android:id="@+id/infiniteLoopSetting_CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:checked="false"
+            android:text="@string/infinityLoop" />
 
+        <CheckBox
+            android:id="@+id/randomizeTestSettings_CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/randomizeTest" />
+
+    </LinearLayout>
 
 
 </RelativeLayout>
