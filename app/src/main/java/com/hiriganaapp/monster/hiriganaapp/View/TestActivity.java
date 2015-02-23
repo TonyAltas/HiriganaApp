@@ -65,7 +65,7 @@ public class TestActivity extends Activity {
         @Override
         public void run() {
             long timeCounter = System.nanoTime() - startTestTime;
-            seconds = (int) TimeUnit.NANOSECONDS.toSeconds(timeCounter);
+            seconds = ((int) TimeUnit.NANOSECONDS.toSeconds(timeCounter))%60;
             minutes = (int) TimeUnit.NANOSECONDS.toMinutes(timeCounter);
             timerTextView.setText(String.format("%d:%02d", minutes,seconds));
 
@@ -164,6 +164,7 @@ public class TestActivity extends Activity {
                 }
                 display.setText(hiraganaArray[Integer.parseInt(selectedHiraganaArray[flashCardCounter])]);
                 currentCardNumber.setText(Integer.toString(flashCardCounter + 1));
+
 //                Log.v("NoClick", Integer.toString(flashCardCounter));
 //                Log.v("NoClick___MaxCounter IS: ", Integer.toString(flashCardMax));
             }
@@ -230,6 +231,8 @@ public class TestActivity extends Activity {
             }
         });
     }
+
+
 
 
     @Override
