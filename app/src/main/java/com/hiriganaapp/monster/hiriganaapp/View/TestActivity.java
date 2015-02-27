@@ -188,7 +188,6 @@ public class TestActivity extends Activity {
 
             return;
         }
-;
 
         //Removes checked card from array
         System.arraycopy(selectedHiraganaArray, flashCardCounter + 1, selectedHiraganaArray, flashCardCounter, selectedHiraganaArray.length - 1 - flashCardCounter);
@@ -199,6 +198,22 @@ public class TestActivity extends Activity {
         }
         display.setText(hiraganaArray[Integer.parseInt(selectedHiraganaArray[flashCardCounter])]);
         totalCardNumber.setText(Integer.toString(flashCardMax + 1));
+        currentCardNumberTextView.setText(Integer.toString(flashCardCounter + 1));
+
+    }
+
+    public void noButtonImpl() {
+        if (flashCardMax < 0) {
+            display.setText("No More Cards!");
+            return;
+        }
+
+        if (flashCardCounter < flashCardMax) {
+            flashCardCounter++;
+        } else {
+            flashCardCounter = 0;
+        }
+        display.setText(hiraganaArray[Integer.parseInt(selectedHiraganaArray[flashCardCounter])]);
         currentCardNumberTextView.setText(Integer.toString(flashCardCounter + 1));
 
     }

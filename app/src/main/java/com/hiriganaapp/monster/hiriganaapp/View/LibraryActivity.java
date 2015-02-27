@@ -21,6 +21,7 @@ public class LibraryActivity extends Activity {
     private ArrayAdapter<String> arrayAdapter;
     private Context context = this;
     private String[] hiragana;
+    // hiriganaItems is used to store the selected kana
     private final int[] hiraganaItems = new int[75];
     private final int SELECTED = 1;
     private final int NOT_SELECTED = 0;
@@ -45,7 +46,7 @@ public class LibraryActivity extends Activity {
                 Toast toast = Toast.makeText(context, Integer.toString(i), Toast.LENGTH_SHORT);
                 toast.show();
 
-
+                // When a letter from the alphabet is selected, hiraganaItems stores the index.
                 if (hiraganaItems[i] == NOT_SELECTED) {
                     view.setBackgroundColor(getResources().getColor(R.color.library_selected));
                     hiraganaItems[i] = SELECTED;
@@ -68,12 +69,13 @@ public class LibraryActivity extends Activity {
 
         //Build String to hold all the selected hiragana
         StringBuilder stringBuilder = new StringBuilder();
-
         for (int i = 0; i < hiraganaItems.length; i++) {
             if (hiraganaItems[i] == SELECTED) {
                 stringBuilder.append(i + ",");
             }
         }
+        //The selected hirigana index is used with string.xml array of hirigana
+        // to display the selected hirigana symbol
         editor.putString(SELECTED_HIRAGANA_PREFFERENCE, stringBuilder.toString());
         editor.commit();
         Log.v("OnBackPress", stringBuilder.toString());

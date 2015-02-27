@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
+import com.hiriganaapp.monster.hiriganaapp.View.TestActivity;
+
 /**
  * Created by Monster on 23-Feb-15.
  */
@@ -30,18 +32,19 @@ public class NoButtonOnClickListener implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        ((TestActivity)context).noButtonImpl();
 
-        if (flashCardMax < 0) {
-            display.setText("No More Cards!");
-            return;
-        }
-
-        if (flashCardCounter < flashCardMax) {
-            flashCardCounter++;
-        } else {
-            flashCardCounter = 0;
-        }
-        display.setText(hiraganaArray[Integer.parseInt(selectedHiraganaArray[flashCardCounter])]);
-        currentCardNumberTextView.setText(Integer.toString(flashCardCounter + 1));
+//        if (flashCardMax < 0) {
+//            display.setText("No More Cards!");
+//            return;
+//        }
+//
+//        if (flashCardCounter < flashCardMax) {
+//            flashCardCounter++;
+//        } else {
+//            flashCardCounter = 0;
+//        }
+//        display.setText(hiraganaArray[Integer.parseInt(selectedHiraganaArray[flashCardCounter])]);
+//        currentCardNumberTextView.setText(Integer.toString(flashCardCounter + 1));
     }
 }
