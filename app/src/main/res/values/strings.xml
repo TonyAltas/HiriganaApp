@@ -12,6 +12,7 @@
     <string name="randomizeTest">RandomizeTest</string>
     <string name="title_activity_test">TestActivity</string>
     <string name="timeLabelTextView">Time: </string>
+    <string name="flipCard">Flip Card</string>
 
     <string-array name="hiragana">
         <item>あ</item>
@@ -90,6 +91,86 @@
         <item/>
         <item>を</item>
         <item>ん</item>
+    </string-array>
+
+    <string-array name="romanized_kana" >
+        <item>a</item>
+        <item>i</item>
+        <item>u</item>
+        <item>e</item>
+        <item>o</item>
+        <item>ka</item>
+        <item>ki</item>
+        <item>ku</item>
+        <item>ke</item>
+        <item>ko</item>
+        <item>ga</item>
+        <item>gi</item>
+        <item>gu</item>
+        <item>ge</item>
+        <item>go</item>
+        <item>sa</item>
+        <item>shi</item>
+        <item>su</item>
+        <item>se</item>
+        <item>so</item>
+        <item>za</item>
+        <item>ji</item>
+        <item>zu</item>
+        <item>ze</item>
+        <item>zo</item>
+        <item>ta</item>
+        <item>chi</item>
+        <item>tsu</item>
+        <item>te</item>
+        <item>to</item>
+        <item>da</item>
+        <item>di</item>
+        <item>du</item>
+        <item>de</item>
+        <item>do</item>
+        <item>na</item>
+        <item>ni</item>
+        <item>nu</item>
+        <item>ne</item>
+        <item>no</item>
+        <item>ha</item>
+        <item>hi</item>
+        <item>fu</item>
+        <item>he</item>
+        <item>ho</item>
+        <item>ba</item>
+        <item>bi</item>
+        <item>bu</item>
+        <item>be</item>
+        <item>bo</item>
+        <item>pa</item>
+        <item>pi</item>
+        <item>pu</item>
+        <item>pe</item>
+        <item>po</item>
+        <item>ma</item>
+        <item>mi</item>
+        <item>mu</item>
+        <item>me</item>
+        <item>mo</item>
+        <item>ya</item>
+        <item/>
+        <item>yu</item>
+        <item/>
+        <item>yo</item>
+        <item>ra</item>
+        <item>ri</item>
+        <item>ru</item>
+        <item>re</item>
+        <item>ro</item>
+        <item>wa</item>
+        <item/>
+        <item/>
+        <item/>
+        <item>wo</item>
+        <item>n</item>
+
     </string-array>
 
     <string name="title_activity_test_finsih">TestFinsihActivity</string>

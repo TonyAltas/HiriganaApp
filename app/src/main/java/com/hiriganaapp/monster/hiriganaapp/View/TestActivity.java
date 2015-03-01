@@ -10,9 +10,11 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.hiriganaapp.monster.hiriganaapp.Controller.FlipCardButtonListener;
 import com.hiriganaapp.monster.hiriganaapp.Controller.NoButtonOnClickListener;
 import com.hiriganaapp.monster.hiriganaapp.Controller.YesButtonOnClickListener;
 import com.hiriganaapp.monster.hiriganaapp.R;
@@ -31,6 +33,7 @@ public class TestActivity extends Activity {
     private String selectedHiraganaString;
     private String[] selectedHiraganaArray = new String[75];
     private String hiraganaArray[];
+    private String romanizedArray[];
 
     private final String SETTINGS_PREFERENCCE_FILE = "settings_file";
     private final String INFINITE_LOOP_SETTINGS = "infinite_loop";
@@ -45,6 +48,7 @@ public class TestActivity extends Activity {
     private long endTestTime = 0;
     private int seconds = 0;
     private int minutes = 0;
+    private boolean isVisible = true;
 
     private boolean infinityLoop = false;
     private boolean randomizeTest = false;
@@ -52,6 +56,7 @@ public class TestActivity extends Activity {
     private TextView display;
     private Button yesButton;
     private Button noButton;
+    private Button flipCardButton;
     private TextView currentCardNumberTextView;
     private TextView totalCardNumber;
     private TextView timerTextView;
@@ -87,6 +92,7 @@ public class TestActivity extends Activity {
         display = (TextView) findViewById(R.id.hiraganaDisplay_textView);
         yesButton = (Button) findViewById(R.id.yes_Button);
         noButton = (Button) findViewById(R.id.no_Button);
+        flipCardButton = (Button) findViewById(R.id.flipCard_Button);
 
         currentCardNumberTextView = (TextView) findViewById(R.id.currentCardNumber_textView);
         totalCardNumber = (TextView) findViewById(R.id.totalCardNumber_textView);
@@ -94,9 +100,10 @@ public class TestActivity extends Activity {
 
         //Handle all the shared preferences access
         sharedPreferenceHandler();
-        //Retrieve hiraganaArray array
+        //Retrieve hiraganaArray & romanizedArray array from string.xml
         Resources res = getResources();
         hiraganaArray = res.getStringArray(R.array.hiragana);
+        romanizedArray = res.getStringArray(R.array.romanized_kana);
         //Tokenize selected items array
         tokenizeSelected();
         // Randomize the array
@@ -111,6 +118,8 @@ public class TestActivity extends Activity {
 
         noButton.setOnClickListener((new NoButtonOnClickListener(context,flashCardMax,display,flashCardCounter,
                 currentCardNumberTextView,hiraganaArray,selectedHiraganaArray)));
+
+        flipCardButton.setOnClickListener(new FlipCardButtonListener(context));
 
     }
 
@@ -200,9 +209,15 @@ public class TestActivity extends Activity {
         totalCardNumber.setText(Integer.toString(flashCardMax + 1));
         currentCardNumberTextView.setText(Integer.toString(flashCardCounter + 1));
 
+        noButton.setVisibility(View.GONE);
+        yesButton.setVisibility(View.GONE);
+        flipCardButton.setVisibility(View.VISIBLE);
+        isVisible = true;
     }
 
     public void noButtonImpl() {
+
+
         if (flashCardMax < 0) {
             display.setText("No More Cards!");
             return;
@@ -216,6 +231,26 @@ public class TestActivity extends Activity {
         display.setText(hiraganaArray[Integer.parseInt(selectedHiraganaArray[flashCardCounter])]);
         currentCardNumberTextView.setText(Integer.toString(flashCardCounter + 1));
 
+        noButton.setVisibility(View.GONE);
+        yesButton.setVisibility(View.GONE);
+        flipCardButton.setVisibility(View.VISIBLE);
+        isVisible = true;
+    }
+
+    public void flipCardButtonImpl() {
+//        if (isVisible) {
+//            noButton.setVisibility(View.GONE);
+//            noButton.setVisibility(View.GONE);
+//            isVisible = false;
+//        }
+        if(isVisible){
+            noButton.setVisibility(View.VISIBLE);
+            yesButton.setVisibility(View.VISIBLE);
+            flipCardButton.setVisibility(View.GONE);
+            isVisible = false;
+            //Add romanized kana
+            display.setText(romanizedArray[Integer.parseInt(selectedHiraganaArray[flashCardCounter])]);
+        }
     }
 
     @Override
