@@ -15,6 +15,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.hiriganaapp.monster.hiriganaapp.R;
+import com.hiriganaapp.monster.hiriganaapp.adapter.LibraryGridViewAdapter;
 
 public class LibraryActivity extends Activity {
     private GridView libraryGrid;
@@ -36,10 +37,12 @@ public class LibraryActivity extends Activity {
         libraryGrid = (GridView) findViewById(R.id.library_gridView);
         Resources res = getResources();
         hiragana = res.getStringArray(R.array.hiragana);
+//        List<String> hiraganaList = Arrays.asList(hiragana);
+//        arrayAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1,hiragana);
 
-        arrayAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1,hiragana);
-        libraryGrid.setAdapter(arrayAdapter);
+//        libraryGrid.setAdapter(arrayAdapter);
 
+        libraryGrid.setAdapter(new LibraryGridViewAdapter(context, hiragana));
         libraryGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

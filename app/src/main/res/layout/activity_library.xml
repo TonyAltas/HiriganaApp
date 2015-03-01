@@ -27,9 +27,18 @@
 
             <GridView
                 android:id="@+id/library_gridView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:numColumns="5"
+                android:gravity="center"
+                android:columnWidth="50dip"
+
+                android:horizontalSpacing="5dip"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+
+                android:stretchMode="spacingWidthUniform"
+                android:verticalSpacing="10dip"
 
                 ></GridView>
 
