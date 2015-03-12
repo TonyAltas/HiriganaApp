@@ -8,12 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.Toast;
 
+import com.hiriganaapp.monster.hiriganaapp.Model.KanaSingleton;
 import com.hiriganaapp.monster.hiriganaapp.R;
 import com.hiriganaapp.monster.hiriganaapp.adapter.LibraryGridViewAdapter;
 
@@ -43,24 +41,28 @@ public class LibraryActivity extends Activity {
 //        libraryGrid.setAdapter(arrayAdapter);
 
         libraryGrid.setAdapter(new LibraryGridViewAdapter(context, hiragana));
-        libraryGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast toast = Toast.makeText(context, Integer.toString(i), Toast.LENGTH_SHORT);
-                toast.show();
-
-                // When a letter from the alphabet is selected, hiraganaItems stores the index.
-                if (hiraganaItems[i] == NOT_SELECTED) {
-                    view.setBackgroundColor(getResources().getColor(R.color.library_selected));
-                    hiraganaItems[i] = SELECTED;
-                } else {
-                    hiraganaItems[i] = NOT_SELECTED;
-                    view.setBackgroundColor(getResources().getColor(R.color.library_bg));
-                }
-            }
-        });
+//        libraryGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Toast toast = Toast.makeText(context, Integer.toString(i), Toast.LENGTH_SHORT);
+//                toast.show();
+//
+//
+//                // When a letter from the alphabet is selected, hiraganaItems stores the index.
+//                if (hiraganaItems[i] == NOT_SELECTED) {
+////                    view.setBackgroundColor(getResources().getColor(R.color.library_selected));
+//                    hiraganaItems[i] = SELECTED;
+//                } else {
+//                    hiraganaItems[i] = NOT_SELECTED;
+////                    view.setBackgroundColor(getResources().getColor(R.color.library_bg));
+//                }
+//            }
+//        });
     }
 
+    public void getSparseBooleanArray(){
+
+    }
 
     @Override
     public void onBackPressed() {
@@ -72,8 +74,13 @@ public class LibraryActivity extends Activity {
 
         //Build String to hold all the selected hiragana
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < hiraganaItems.length; i++) {
-            if (hiraganaItems[i] == SELECTED) {
+//        for (int i = 0; i < hiraganaItems.length; i++) {
+//            if (hiraganaItems[i] == SELECTED) {
+//                stringBuilder.append(i + ",");
+//            }
+//        }
+        for (int i = 0; i < KanaSingleton.getKanaSingleton().length(); i++) {
+            if (KanaSingleton.getKanaSingleton().get(i)) {
                 stringBuilder.append(i + ",");
             }
         }
