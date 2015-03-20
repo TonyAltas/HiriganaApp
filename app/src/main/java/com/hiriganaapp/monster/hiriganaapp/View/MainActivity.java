@@ -3,6 +3,7 @@ package com.hiriganaapp.monster.hiriganaapp.View;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +22,9 @@ public class MainActivity extends Activity {
     private Context context = this;
     private ListView menulistView;
     private ArrayAdapter<String> arrayAdapter;
+    private final String HIRAGANA_PREFERENCE_FILE = "hiragana_preferences _file";
+    private final String SELECTED_HIRAGANA_PREFFERENCE = "selected_hiragana";
+    private String selectedHiraganaString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,21 +41,34 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String item = (String) adapterView.getItemAtPosition(i);
-                Toast toast = Toast.makeText(context, item, Toast.LENGTH_SHORT);
-                toast.show();
+//                Toast toast = Toast.makeText(context, item, Toast.LENGTH_SHORT);
+//                toast.show();
 
-                if (item.equals("Start")) {
-                    Intent intent = new Intent(context, TestActivity.class);
-                    startActivity(intent);
-                }
-                else if (item.equals("Library")) {
-                    Intent intent = new Intent(context, LibraryActivity.class);
-                    startActivity(intent);
-                }
-                else if (item.equals("Settings")) {
-                    Intent intent = new Intent((context), SettingsActivity.class);
-                    startActivity(intent);
-                }
+
+
+                    if (item.equals("Start")) {
+                        SharedPreferences settings = getSharedPreferences(HIRAGANA_PREFERENCE_FILE, Context.MODE_PRIVATE);
+                        selectedHiraganaString = settings.getString(SELECTED_HIRAGANA_PREFFERENCE, "Empty");
+                        // Check if at least one Kana from the library is selected
+                        if (selectedHiraganaString.equals("")) {
+                            Toast toast = Toast.makeText(context, "Please select Kana from library",Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+                        else{
+                            Intent intent = new Intent(context, TestActivity.class);
+                            startActivity(intent);
+                        }
+
+                    } else if (item.equals("Library")) {
+                        Intent intent = new Intent(context, LibraryActivity.class);
+                        startActivity(intent);
+                    } else if (item.equals("Settings")) {
+                        Intent intent = new Intent((context), SettingsActivity.class);
+                        startActivity(intent);
+                    }
+
+
+
             }
         });
     }

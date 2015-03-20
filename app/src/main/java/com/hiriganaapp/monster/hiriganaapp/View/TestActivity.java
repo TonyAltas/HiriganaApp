@@ -150,15 +150,17 @@ public class TestActivity extends Activity {
     }
 
     private void sharedPreferenceHandler() {
-        //Retrieve list of selected hiraganaArray to display
-        settings = getSharedPreferences
-                (HIRAGANA_PREFERENCE_FILE, Context.MODE_PRIVATE);
-        selectedHiraganaString = settings.getString(SELECTED_HIRAGANA_PREFFERENCE, "Empty");
 
-        //Read in the Settigns from the Settings preference file.
-        settings = getSharedPreferences(SETTINGS_PREFERENCCE_FILE, Context.MODE_PRIVATE);
-        infinityLoop = settings.getBoolean(INFINITE_LOOP_SETTINGS, false);
-        randomizeTest = settings.getBoolean(RANDOMIZE_TEST_SETTINGS, false);
+            //Retrieve list of selected hiraganaArray to display
+            settings = getSharedPreferences
+                    (HIRAGANA_PREFERENCE_FILE, Context.MODE_PRIVATE);
+            selectedHiraganaString = settings.getString(SELECTED_HIRAGANA_PREFFERENCE, "Empty");
+
+            //Read in the Settigns from the Settings preference file.
+            settings = getSharedPreferences(SETTINGS_PREFERENCCE_FILE, Context.MODE_PRIVATE);
+            infinityLoop = settings.getBoolean(INFINITE_LOOP_SETTINGS, false);
+            randomizeTest = settings.getBoolean(RANDOMIZE_TEST_SETTINGS, false);
+
     }
 
     public void yesButtonImpl(){
