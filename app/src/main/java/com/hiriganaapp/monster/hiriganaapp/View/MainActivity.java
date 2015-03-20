@@ -1,8 +1,8 @@
 package com.hiriganaapp.monster.hiriganaapp.View;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,7 +16,7 @@ import com.hiriganaapp.monster.hiriganaapp.R;
 import com.hiriganaapp.monster.hiriganaapp.Utils.Utils;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
     private String[] mainListArray = {"Start","Library","Settings","Statistics"};
     private Context context = this;
     private ListView menulistView;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">HiriganaApp</string>
+    <string name="app_name">KanaQuiz</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_library">LibraryActivity</string>
@@ -13,6 +13,7 @@
     <string name="title_activity_test">TestActivity</string>
     <string name="timeLabelTextView">Time: </string>
     <string name="flipCard">Flip Card</string>
+    <string name="testFinished">End Of Quiz</string>
 
     <string-array name="hiragana">
         <item>あ</item>

@@ -1,8 +1,8 @@
 package com.hiriganaapp.monster.hiriganaapp.View;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,7 +12,7 @@ import com.hiriganaapp.monster.hiriganaapp.Controller.InfinityLoopSettingsListen
 import com.hiriganaapp.monster.hiriganaapp.Controller.RandomizeTestSettingsListener;
 import com.hiriganaapp.monster.hiriganaapp.R;
 
-public class SettingsActivity extends ActionBarActivity {
+public class SettingsActivity extends Activity {
     private Context context = this;
     private CheckBox infiniteLoopCheckBox;
     private CheckBox randomizeTestCheckBox;

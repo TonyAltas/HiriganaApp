@@ -1,6 +1,6 @@
 package com.hiriganaapp.monster.hiriganaapp.View;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,9 +8,7 @@ import android.widget.TextView;
 
 import com.hiriganaapp.monster.hiriganaapp.R;
 
-import java.util.concurrent.TimeUnit;
-
-public class TestFinsihActivity extends ActionBarActivity {
+public class TestFinsihActivity extends Activity {
     private final String TOTAL_FLASH_CARDS = "total_flash_cards";
     private final String TIME_ELAPSED = "time_elapsed";
     private final String MINUTES_ELAPSED = "minutes_elapsed";
