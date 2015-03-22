@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.hiriganaapp.monster.hiriganaapp.Controller.FlipCardButtonListener;
@@ -54,9 +53,9 @@ public class TestActivity extends Activity {
     private boolean randomizeTest = false;
 
     private TextView display;
-    private Button yesButton;
-    private Button noButton;
-    private Button flipCardButton;
+    private TextView yesButton;
+    private TextView noButton;
+    private TextView flipCardButton;
     private TextView currentCardNumberTextView;
     private TextView totalCardNumber;
     private TextView timerTextView;
@@ -90,9 +89,9 @@ public class TestActivity extends Activity {
         timeHandler.postDelayed(timeRunnable, 0);
 
         display = (TextView) findViewById(R.id.hiraganaDisplay_textView);
-        yesButton = (Button) findViewById(R.id.yes_Button);
-        noButton = (Button) findViewById(R.id.no_Button);
-        flipCardButton = (Button) findViewById(R.id.flipCard_Button);
+        yesButton = (TextView) findViewById(R.id.yes_Button);
+        noButton = (TextView) findViewById(R.id.no_Button);
+        flipCardButton = (TextView) findViewById(R.id.flipCard_Button);
 
         currentCardNumberTextView = (TextView) findViewById(R.id.currentCardNumber_textView);
         totalCardNumber = (TextView) findViewById(R.id.totalCardNumber_textView);
@@ -124,7 +123,7 @@ public class TestActivity extends Activity {
     }
 
     private void randomizeArray() {
-        if (randomizeTest == true) {
+        if (randomizeTest) {
 
             for (int i = 0; i < initialFlashCardMax; i++) {
                 randomNumber = rand.nextInt(initialFlashCardMax);
@@ -166,7 +165,7 @@ public class TestActivity extends Activity {
     public void yesButtonImpl(){
 
 
-        if (infinityLoop == true) {
+        if (infinityLoop) {
             if (flashCardCounter < flashCardMax) {
                 flashCardCounter++;
             } else {
@@ -182,7 +181,7 @@ public class TestActivity extends Activity {
             flashCardMax--;
         }
         if (flashCardMax < 0) {
-            display.setText("No More Cards!");
+
             totalCardNumber.setText("0");
             currentCardNumberTextView.setText("0");
 
@@ -202,7 +201,7 @@ public class TestActivity extends Activity {
 
         //Removes checked card from array
         System.arraycopy(selectedHiraganaArray, flashCardCounter + 1, selectedHiraganaArray, flashCardCounter, selectedHiraganaArray.length - 1 - flashCardCounter);
-        Log.v("Selected Hiragana after Remove: ", selectedHiraganaArray.toString());
+
 
         if (flashCardCounter >= flashCardMax) {
             flashCardCounter = 0;

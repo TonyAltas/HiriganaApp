@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical"
-        android:minWidth="130dp">
+        android:minWidth="180dp">
 
         <TextView
             android:id="@+id/hiraganaDisplay_textView"
@@ -45,7 +45,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+             >
 
             <TextView
                 android:id="@+id/currentCardNumber_textView"
@@ -64,7 +65,8 @@
             <TextView
                 android:id="@+id/totalCardNumber_textView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                />
 
         </LinearLayout>
 
@@ -73,28 +75,48 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            >
 
-            <Button
+            <TextView
                 android:id="@+id/yes_Button"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/testYes"
-                android:visibility="gone"/>
+                android:visibility="gone"
+                android:background="@drawable/border_ui"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:textSize="30dp"/>
 
-            <Button
+            <TextView
                 android:id="@+id/no_Button"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/testNo"
-                android:visibility="gone"/>
+                android:visibility="gone"
+                android:background="@drawable/border_ui"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:textSize="30dp"/>
 
 
-            <Button
+
+            <TextView
                 android:id="@+id/flipCard_Button"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/flipCard"
+                android:background="@drawable/border_ui"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="30dp"
                 />
 
 
