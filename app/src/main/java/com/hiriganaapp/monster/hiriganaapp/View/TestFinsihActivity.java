@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.hiriganaapp.monster.hiriganaapp.Controller.ContinueButtonOnClickListener;
 import com.hiriganaapp.monster.hiriganaapp.R;
 
 public class TestFinsihActivity extends Activity {
@@ -37,6 +38,9 @@ public class TestFinsihActivity extends Activity {
 
         TextView timeElapsedTextView = (TextView) findViewById(R.id.timeElapsedTestFinish_TextView);
         timeElapsedTextView.setText(String.format("%d:%02d",minutes,seconds));
+
+        TextView continueButton = (TextView) findViewById(R.id.continue_Button);
+        continueButton.setOnClickListener(new ContinueButtonOnClickListener(this));
 
     }
 

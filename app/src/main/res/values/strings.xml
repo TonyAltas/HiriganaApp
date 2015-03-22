@@ -14,6 +14,8 @@
     <string name="timeLabelTextView">Time: </string>
     <string name="flipCard">Flip Card</string>
     <string name="testFinished">End Of Quiz</string>
+    <string name="kannaDoIt">You Kanna Do It!</string>
+    <string name="continueButton" >Continue</string>
 
     <string-array name="hiragana">
         <item>あ</item>

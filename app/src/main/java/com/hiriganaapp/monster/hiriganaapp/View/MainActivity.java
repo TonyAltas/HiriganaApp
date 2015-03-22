@@ -18,7 +18,7 @@ import com.hiriganaapp.monster.hiriganaapp.Utils.Utils;
 
 
 public class MainActivity extends Activity {
-    private String[] mainListArray = {"Start","Library","Settings","Statistics"};
+    private String[] mainListArray = {"Start","Library","Settings"};
     private Context context = this;
     private ListView menulistView;
     private ArrayAdapter<String> arrayAdapter;
