@@ -1,4 +1,4 @@
-package com.hiriganaapp.monster.hiriganaapp.View;
+package com.kanaflashcard.monster.kanaquiz.View;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.hiriganaapp.monster.hiriganaapp.Controller.ContinueButtonOnClickListener;
-import com.hiriganaapp.monster.hiriganaapp.R;
+import com.kanaflashcard.monster.kanaquiz.Controller.ContinueButtonOnClickListener;
+import com.kanaflashcard.monster.kanaquiz.R;
 
 public class TestFinsihActivity extends Activity {
     private final String TOTAL_FLASH_CARDS = "total_flash_cards";

@@ -1,4 +1,4 @@
-package com.hiriganaapp.monster.hiriganaapp.View;
+package com.kanaflashcard.monster.kanaquiz.View;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,8 +13,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.hiriganaapp.monster.hiriganaapp.R;
-import com.hiriganaapp.monster.hiriganaapp.Utils.Utils;
+import com.kanaflashcard.monster.kanaquiz.R;
+import com.kanaflashcard.monster.kanaquiz.Utils.Utils;
 
 
 public class MainActivity extends Activity {
@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
 
                     if (item.equals("Start")) {
                         SharedPreferences settings = getSharedPreferences(HIRAGANA_PREFERENCE_FILE, Context.MODE_PRIVATE);
-                        selectedHiraganaString = settings.getString(SELECTED_HIRAGANA_PREFFERENCE, "Empty");
+                        selectedHiraganaString = settings.getString(SELECTED_HIRAGANA_PREFFERENCE, "");
                         // Check if at least one Kana from the library is selected
                         if (selectedHiraganaString.equals("")) {
                             Toast toast = Toast.makeText(context, "Please select Kana from library",Toast.LENGTH_SHORT);

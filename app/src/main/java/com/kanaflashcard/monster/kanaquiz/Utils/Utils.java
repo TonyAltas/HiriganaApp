@@ -1,4 +1,4 @@
-package com.hiriganaapp.monster.hiriganaapp.Utils;
+package com.kanaflashcard.monster.kanaquiz.Utils;
 
 import android.content.Context;
 import android.view.View;

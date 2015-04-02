@@ -1,4 +1,4 @@
-package com.hiriganaapp.monster.hiriganaapp.View;
+package com.kanaflashcard.monster.kanaquiz.View;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,10 +13,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.hiriganaapp.monster.hiriganaapp.Controller.FlipCardButtonListener;
-import com.hiriganaapp.monster.hiriganaapp.Controller.NoButtonOnClickListener;
-import com.hiriganaapp.monster.hiriganaapp.Controller.YesButtonOnClickListener;
-import com.hiriganaapp.monster.hiriganaapp.R;
+import com.kanaflashcard.monster.kanaquiz.Controller.FlipCardButtonListener;
+import com.kanaflashcard.monster.kanaquiz.Controller.NoButtonOnClickListener;
+import com.kanaflashcard.monster.kanaquiz.Controller.YesButtonOnClickListener;
+import com.kanaflashcard.monster.kanaquiz.R;
 
 import java.util.Random;
 import java.util.StringTokenizer;

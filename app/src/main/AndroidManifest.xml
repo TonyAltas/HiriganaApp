@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hiriganaapp.monster.hiriganaapp" >
+    package="com.kanaflashcard.monster.kanaquiz"
+        android:versionCode="1"
+        android:versionName="1">
 
     <application
         android:allowBackup="true"
@@ -8,7 +10,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".View.MainActivity"
+            android:name="com.kanaflashcard.monster.kanaquiz.View.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -18,21 +20,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".View.LibraryActivity"
+            android:name="com.kanaflashcard.monster.kanaquiz.View.LibraryActivity"
             android:label="@string/title_activity_library" >
         </activity>
         <activity
-            android:name=".View.TestActivity"
+            android:name="com.kanaflashcard.monster.kanaquiz.View.TestActivity"
             android:label="@string/title_activity_test"
             android:noHistory="true"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".View.TestFinsihActivity"
+            android:name="com.kanaflashcard.monster.kanaquiz.View.TestFinsihActivity"
             android:label="@string/title_activity_test_finsih" >
         </activity>
         <activity
-            android:name=".View.SettingsActivity"
+            android:name="com.kanaflashcard.monster.kanaquiz.View.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
     </application>

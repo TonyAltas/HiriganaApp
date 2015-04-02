@@ -1,4 +1,4 @@
-package com.hiriganaapp.monster.hiriganaapp.Controller;
+package com.kanaflashcard.monster.kanaquiz.Controller;
 
 import android.view.View;
 

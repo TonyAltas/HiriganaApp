@@ -1,9 +1,9 @@
-package com.hiriganaapp.monster.hiriganaapp.Controller;
+package com.kanaflashcard.monster.kanaquiz.Controller;
 
 import android.content.Context;
 import android.view.View;
 
-import com.hiriganaapp.monster.hiriganaapp.View.TestActivity;
+import com.kanaflashcard.monster.kanaquiz.View.TestActivity;
 
 /**
  * Created by Monster on 23-Feb-15.

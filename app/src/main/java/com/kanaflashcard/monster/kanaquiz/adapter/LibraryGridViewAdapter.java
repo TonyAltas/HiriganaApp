@@ -1,4 +1,4 @@
-package com.hiriganaapp.monster.hiriganaapp.adapter;
+package com.kanaflashcard.monster.kanaquiz.adapter;
 
 import android.content.Context;
 import android.util.SparseBooleanArray;
@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.hiriganaapp.monster.hiriganaapp.Model.KanaSingleton;
-import com.hiriganaapp.monster.hiriganaapp.R;
+import com.kanaflashcard.monster.kanaquiz.Model.KanaSingleton;
+import com.kanaflashcard.monster.kanaquiz.R;
 
 /**
  * Created by Monster on 01-Mar-15.

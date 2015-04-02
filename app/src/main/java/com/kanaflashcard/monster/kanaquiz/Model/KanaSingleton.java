@@ -1,4 +1,4 @@
-package com.hiriganaapp.monster.hiriganaapp.Model;
+package com.kanaflashcard.monster.kanaquiz.Model;
 
 import android.util.SparseBooleanArray;
 

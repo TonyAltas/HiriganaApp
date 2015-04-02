@@ -1,4 +1,4 @@
-package com.hiriganaapp.monster.hiriganaapp.View;
+package com.kanaflashcard.monster.kanaquiz.View;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,9 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CheckBox;
 
-import com.hiriganaapp.monster.hiriganaapp.Controller.InfinityLoopSettingsListener;
-import com.hiriganaapp.monster.hiriganaapp.Controller.RandomizeTestSettingsListener;
-import com.hiriganaapp.monster.hiriganaapp.R;
+import com.kanaflashcard.monster.kanaquiz.Controller.InfinityLoopSettingsListener;
+import com.kanaflashcard.monster.kanaquiz.Controller.RandomizeTestSettingsListener;
+import com.kanaflashcard.monster.kanaquiz.R;
 
 public class SettingsActivity extends Activity {
     private Context context = this;

@@ -1,4 +1,4 @@
-package com.hiriganaapp.monster.hiriganaapp.View;
+package com.kanaflashcard.monster.kanaquiz.View;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,9 +11,9 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 
-import com.hiriganaapp.monster.hiriganaapp.Model.KanaSingleton;
-import com.hiriganaapp.monster.hiriganaapp.R;
-import com.hiriganaapp.monster.hiriganaapp.adapter.LibraryGridViewAdapter;
+import com.kanaflashcard.monster.kanaquiz.Model.KanaSingleton;
+import com.kanaflashcard.monster.kanaquiz.R;
+import com.kanaflashcard.monster.kanaquiz.adapter.LibraryGridViewAdapter;
 
 public class LibraryActivity extends Activity {
     private GridView libraryGrid;

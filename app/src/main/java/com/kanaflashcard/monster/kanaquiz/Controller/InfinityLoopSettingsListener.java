@@ -1,7 +1,6 @@
-package com.hiriganaapp.monster.hiriganaapp.Controller;
+package com.kanaflashcard.monster.kanaquiz.Controller;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.CheckBox;
